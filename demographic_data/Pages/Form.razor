@@ -1,0 +1,95 @@
+﻿@page "/form"
+@using System;
+@using System.Reflection;
+
+<PageTitle>Form</PageTitle>
+
+<h1><b>Демографический опрос</b></h1>
+
+@foreach (var field in form)
+    {
+        
+        <h3>@field.Title</h3>
+
+        <input placeholder=@field.Name @bind=field.Value/>
+    
+    }
+
+<button class="btn btn-primary" @onclick="SendForm">Отправить анкету</button>
+<p role="status">Current count: @currentCount</p>
+
+<h2><b>Ваша Анкета</b></h2>
+
+@foreach (var field in form)
+    {
+        
+        <h3>@field.Title :</h3>
+        <body>
+        @field.Value
+        </body>
+        
+    
+    }
+
+@code {
+    private List<Field> form {get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        form = new List<Field>()
+        {
+            new Field()
+            {
+                Title = "День рождения",
+                Name = "Birthday",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Пол",
+                Name = "Gender",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Место рождения",
+                Name = "PlaceOfBirth",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Образование",
+                Name = "Education",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Семейное положение",
+                Name = "FamilyStatus",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Место работы",
+                Name = "Employment",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Уровень дохода",
+                Name = "IncomeLevel",
+                Value = ""
+            },
+            new Field()
+            {
+                Title = "Доход",
+                Name = "Revenue",
+                Value = ""
+            },
+        };
+    }
+    private int currentCount = 0;
+    private void SendForm()
+    {
+        currentCount++;
+    }
+}

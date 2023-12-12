@@ -1,0 +1,6 @@
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.csproj.AssemblyReference.cache
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.GeneratedMSBuildEditorConfig.editorconfig
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.AssemblyInfoInputs.cache
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.AssemblyInfo.cs
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.csproj.CoreCompileInputs.cache
+/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/demographic_data.Client.MvcApplicationPartsAssemblyInfo.cache

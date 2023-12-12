@@ -1,0 +1,6 @@
+@demographic_data.API_HostAddress = http://localhost:5201
+
+GET {{demographic_data.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
