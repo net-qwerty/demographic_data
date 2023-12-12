@@ -90,6 +90,10 @@
     private int currentCount = 0;
     private void SendForm()
     {
+        for(int i = 0; i < form.Count; i++ )
+        {
+            form[i].Value = "";
+        }
         currentCount++;
     }
 }
