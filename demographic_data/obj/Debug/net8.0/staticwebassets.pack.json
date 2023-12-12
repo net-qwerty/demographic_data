@@ -1,43 +1,43 @@
 {
   "Files": [
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js",
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/compressed/w6afnyw2zd.gz",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/obj/Debug/net8.0/compressed/w6afnyw2zd.gz",
       "PackagePath": "staticwebassets/_framework/blazor.webassembly.js.gz"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/obj/Debug/net8.0/scopedcss/bundle/demographic_data.styles.css",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/obj/Debug/net8.0/scopedcss/bundle/demographic_data.styles.css",
       "PackagePath": "staticwebassets/demographic_data.styles.css"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/css/app.css",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/css/app.css",
       "PackagePath": "staticwebassets/css/app.css"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/css/bootstrap/bootstrap.min.css",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/css/bootstrap/bootstrap.min.css",
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/css/bootstrap/bootstrap.min.css.map",
       "PackagePath": "staticwebassets/css/bootstrap/bootstrap.min.css.map"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/favicon.png",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/icon-192.png",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/icon-192.png",
       "PackagePath": "staticwebassets/icon-192.png"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/index.html",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "/home/sadm/files/study/OOP_C#/App/demographic_data/wwwroot/sample-data/weather.json",
+      "Id": "/home/sadm/files/study/OOP_C#/demographic_data/demographic_data/wwwroot/sample-data/weather.json",
       "PackagePath": "staticwebassets/sample-data/weather.json"
     },
     {

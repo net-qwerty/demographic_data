@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "demographic_data",
   "resources": {
-    "hash": "sha256-pfrI3YvAvqE5aH9mXdBJSvgeCiIe5VQTcUXybUwL+Mo=",
+    "hash": "sha256-zFE0DSjc8by/Dc/csxvXQsGya8srvO436OoQd86acdQ=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.tx0owvqy6d.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-cDuLeL3OCtVtiid/dyex1MVgbuzDSRwZxKzuP2Dp4mg=",
       "netstandard.wasm": "sha256-A0h86SDieTMoU/wU2JTszWCsUmMuguDcbap0b0BzsmI=",
       "System.Private.CoreLib.wasm": "sha256-/0DNIm/T0C07X7Tuz5uR8JvVCoAfEE2MnfPUSjyS9xc=",
-      "demographic_data.wasm": "sha256-Hxldrxk8FGqbH5bD6wbayvvlgoUqwkp5uSIbwte+tgA="
+      "demographic_data.wasm": "sha256-JJtITP54uUSMzjSDb3EB0PY4yUnLn7uwqPDv3Ry8gbA="
     },
     "pdb": {
-      "demographic_data.pdb": "sha256-TaqE+9N+szgfIanwKtyAYpsKgnym8rqs6JRQ863RspQ="
+      "demographic_data.pdb": "sha256-B+HNtRKsAXJEjx/3QBPP9qaPG+Oefqo7xweTEP46kg0="
     }
   },
   "cacheBootResources": true,
