@@ -362,3 +362,24 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+demographic_data/bin/Debug/net8.0/demographic_data.dll
+demographic_data/bin/Debug/net8.0/demographic_data.pdb
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json.gz
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/demographic_data.pdb
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/demographic_data.wasm
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/demographic_data.pdb.gz
+demographic_data/bin/Debug/net8.0/wwwroot/_framework/demographic_data.wasm.gz
+demographic_data/obj/Debug/net8.0/demographic_data.AssemblyInfo.cs
+demographic_data/obj/Debug/net8.0/blazor.boot.json
+demographic_data/obj/Debug/net8.0/demographic_data.AssemblyInfoInputs.cache
+demographic_data/obj/Debug/net8.0/demographic_data.dll
+demographic_data/obj/Debug/net8.0/demographic_data.pdb
+demographic_data/obj/Debug/net8.0/demographic_data.sourcelink.json
+demographic_data/obj/Debug/net8.0/compressed/cg0e6jjszo.gz
+demographic_data/obj/Debug/net8.0/compressed/l3ur1bltx2.gz
+demographic_data/obj/Debug/net8.0/compressed/zut9de47ww.gz
+demographic_data/obj/Debug/net8.0/ref/demographic_data.dll
+demographic_data/obj/Debug/net8.0/refint/demographic_data.dll
+demographic_data/obj/Debug/net8.0/tmp-webcil/demographic_data.wasm
+demographic_data/obj/Debug/net8.0/webcil/demographic_data.wasm
