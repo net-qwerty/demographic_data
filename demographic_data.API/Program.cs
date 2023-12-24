@@ -1,21 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// builder.Services.AddDbContext<RESTfull.Infrastructure.Context>(options =>
-//     options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddDbContext<FormDb>(opt => opt.UseInMemoryDatabase("FormList"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,84 +19,65 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/formitems", async (FormDb db) =>
-    await db.Forms.ToListAsync());
+var formItems = app.MapGroup("/formitems");
 
-app.MapGet("/formitems/complete", async (FormDb db) =>
-    await db.Forms.Where(t => t.IsComplete).ToListAsync());
+formItems.MapGet("/", GetAllForms);
+formItems.MapGet("/complete", GetCompleteForms);
+formItems.MapGet("/{id}", GetForms);
+formItems.MapPost("/", CreateForm);
+formItems.MapPut("/{id}", UpdateForm);
+formItems.MapDelete("/{id}", DeleteForm);
 
-app.MapGet("/formitems/{id}", async (int id, FormDb db) =>
-    await db.Forms.FindAsync(id)
+app.Run();
+
+static async Task<IResult> GetAllForms(FormDb db)
+{
+    return TypedResults.Ok(await db.Forms.ToArrayAsync());
+}
+
+static async Task<IResult> GetCompleteForms(FormDb db)
+{
+    return TypedResults.Ok(await db.Forms.Where(t => t.IsComplete).ToListAsync());
+}
+
+static async Task<IResult> GetForms(int id, FormDb db)
+{
+    return await db.Forms.FindAsync(id)
         is Form form
-            ? Results.Ok(form)
-            : Results.NotFound());
+            ? TypedResults.Ok(form)
+            : TypedResults.NotFound();
+}
 
-app.MapPost("/formitems", async (Form form, FormDb db) =>
+static async Task<IResult> CreateForm(Form form, FormDb db)
 {
     db.Forms.Add(form);
     await db.SaveChangesAsync();
 
-    return Results.Created($"/formitems/{form.Id}", form);
-});
+    return TypedResults.Created($"/formitems/{form.Id}", form);
+}
 
-app.MapPut("/formitems/{id}", async (int id, Form inputForm, FormDb db) =>
+static async Task<IResult> UpdateForm(int id, Form inputForm, FormDb db)
 {
     var form = await db.Forms.FindAsync(id);
 
-    if (form is null) return Results.NotFound();
+    if (form is null) return TypedResults.NotFound();
 
     form.Name = inputForm.Name;
     form.IsComplete = inputForm.IsComplete;
 
     await db.SaveChangesAsync();
 
-    return Results.NoContent();
-});
+    return TypedResults.NoContent();
+}
 
-app.MapDelete("/formitems/{id}", async (int id, FormDb db) =>
+static async Task<IResult> DeleteForm(int id, FormDb db)
 {
     if (await db.Forms.FindAsync(id) is Form form)
     {
         db.Forms.Remove(form);
         await db.SaveChangesAsync();
-        return Results.NoContent();
+        return TypedResults.NoContent();
     }
 
-    return Results.NotFound();
-});
-
-
-
-
-
-
-
-
-
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
-
-app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    return TypedResults.NotFound();
 }
