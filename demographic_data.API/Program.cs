@@ -6,8 +6,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<FormDb>(opt => opt.UseInMemoryDatabase("FormList"));
+// builder.Services.AddDbContext<FormDb>(opt => opt.UseInMemoryDatabase("FormList"));
+// builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddDbContext<FormDb>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
