@@ -19,7 +19,9 @@
 <button class="btn btn-primary" @onclick="SendForm">Отправить анкету</button>
 <p role="status">Current count: @currentCount</p>
 
-<h2><b>Ваша Анкета</b></h2>
+@* Вывод Анкеты  *@
+
+@* <h2><b>Ваша Анкета</b></h2>
 
 @foreach (var field in fields)
     {
@@ -30,7 +32,7 @@
         </body>
         
     
-    }
+    } *@
 
 @code {
     private List<Field> fields {get; set; }
@@ -45,51 +47,45 @@
             new Field()
             {
                 Title = "День рождения",
-                Name = "Birthday",
+                Name = "Дата рождения в формате день:месяц:год",
                 Value = ""
             },
             new Field()
             {
                 Title = "Пол",
-                Name = "Gender",
+                Name = "муж/жен",
                 Value = ""
             },
             new Field()
             {
                 Title = "Место рождения",
-                Name = "PlaceOfBirth",
+                Name = "город",
                 Value = ""
             },
             new Field()
             {
                 Title = "Образование",
-                Name = "Education",
+                Name = "Среднее/Высшее",
                 Value = ""
             },
             new Field()
             {
                 Title = "Семейное положение",
-                Name = "FamilyStatus",
+                Name = "",
                 Value = ""
             },
             new Field()
             {
                 Title = "Место работы",
-                Name = "Employment",
+                Name = "текущее место работы",
                 Value = ""
             },
             new Field()
             {
                 Title = "Уровень дохода",
-                Name = "IncomeLevel",
+                Name = "20000",
                 Value = ""
-            },
-            new Field()
-            {
-                Title = "Доход",
-                Name = "Revenue",
-                Value = ""
-            },
+            }
         };
     }
     private int currentCount = 0;
@@ -97,21 +93,21 @@
     private async Task SendForm()
         {
         
-        var addItem = new FormItem 
-        {
-        Birthday = fields[1].Value,
+        var addItem = new FormItem {};
 
-        Gender = fields[2].Value,
+        addItem.Birthday = fields[0].Value;
 
-        PlaceOfBirth = fields[3].Value,
+        addItem.Gender = fields[1].Value;
 
-        Education = fields[4].Value,
+        addItem.PlaceOfBirth = fields[2].Value;
 
-        FamilyStatus = fields[5].Value,
+        addItem.Education = fields[3].Value;
 
-        Employment = fields[6].Value
+        addItem.FamilyStatus = fields[4].Value;
 
-        };
+        addItem.Employment = fields[5].Value;
+
+        addItem.IncomeLevel = fields[6].Value;
 
         await Http.PostAsJsonAsync("formitems", addItem);
 

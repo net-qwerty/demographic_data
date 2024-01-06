@@ -1,3 +1,5 @@
 curl -X POST http://localhost:5201/formitems -H "Content-type: application/json" -d '{"birthday":"23.06.20","gender":"men","placeofbirth":"sdfsdf","education":"SPBKGUT","familystatus":"marry","employment":"tsdfs","incomelevel":"sadasd","revenue":"testdsdf"}'
 
 curl -X GET http://localhost:5201/formitems | jq
+
+curl -X DELETE http://localhost:5201/formitems/1 | jq

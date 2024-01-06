@@ -1,0 +1,99 @@
+@page "/analytics"
+@using System;
+@using System.Reflection;
+@inject HttpClient Http;
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<PageTitle>Analitics</PageTitle>
+
+<h1><b>Данные демографического опроса</b></h1>
+
+@if (forms == null)
+{
+    <p>No Form Items found.</p>
+}
+else
+{   
+    <div id="grid">
+        <QuickGrid Items="@FilteredForms" ResizableColumns Pagination="@pagination" custom-attrib="somevalue" class="custom-class-attrib" >
+            <PropertyColumn Property="@(p => p.Id)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Birthday)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Gender)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.PlaceOfBirth)" Sortable="true">
+                <ColumnOptions>
+                    <div class="search-box">
+                        <input type="search" autofocus @bind="PlaceOfBirthFilter" @bind:event="oninput" placeholder="PlaceOfBirth..." />
+                    </div>
+                </ColumnOptions>
+            </PropertyColumn>
+            <PropertyColumn Property="@(p => p.Education)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.FamilyStatus)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Employment)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.IncomeLevel)" Sortable="true" />
+        </QuickGrid>
+    </div>
+
+    <Paginator State="@pagination" />
+@* 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>PlaceOfBirth</th>
+                <th>Education</th>
+                <th>FamilyStatus</th>
+                <th>Employment</th>
+                <th>IncomeLevel</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in forms)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Birthday</td>
+                    <td>@item.Gender</td>
+                    <td>@item.PlaceOfBirth</td>
+                    <td>@item.Education</td>
+                    <td>@item.FamilyStatus</td>
+                    <td>@item.Employment</td>
+                    <td>@item.IncomeLevel</td>
+                    <td>@item.Revenue</td>
+                </tr>
+            }
+        </tbody>
+    </table> *@
+}
+
+
+@code {
+    private FormItem[]? forms;
+
+    protected override async Task OnInitializedAsync(){ 
+        forms = await Http.GetFromJsonAsync<FormItem[]>("formitems");
+        
+    }
+    @* private varformseq = forms.AsQueryable(); *@
+
+    string PlaceOfBirthFilter;
+
+    PaginationState pagination = new PaginationState { ItemsPerPage = 20 };
+
+    IQueryable<FormItem> FilteredForms
+    {
+        get
+        {
+            var result = forms.AsQueryable();
+
+            if (!string.IsNullOrEmpty(PlaceOfBirthFilter))
+            {
+                result = result.Where(p => p.PlaceOfBirth.Contains(PlaceOfBirthFilter, StringComparison.CurrentCultureIgnoreCase));
+            }
+
+            return result;
+        }
+    }
+}
