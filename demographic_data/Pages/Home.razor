@@ -10,3 +10,15 @@
 Для прохождения перейдите по 
 <a href="form">сслыке</a>
 
+@if (imageSource is not null)
+{
+    <p>
+        <img src="@imageSource" />
+    </p>
+}
+
+
+@code {
+    private string? imageSource = $"images/HomeImage.jpg";
+
+}

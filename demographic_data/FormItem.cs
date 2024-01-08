@@ -4,7 +4,7 @@ public class FormItem
 {
     public int Id { get; set; }
 
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
 
     public string? Birthday { get; set; }
 

@@ -16,8 +16,9 @@
     
     }
 
+<p></p>
+
 <button class="btn btn-primary" @onclick="SendForm">Отправить анкету</button>
-<p role="status">Current count: @currentCount</p>
 
 @* Вывод Анкеты  *@
 
@@ -95,7 +96,7 @@
         
         var addItem = new FormItem {};
 
-        addItem.Date = DateOnly.FromDateTime(DateTime.Now);
+        addItem.Date = DateTime.UtcNow.AddHours(3);
 
         addItem.Birthday = fields[0].Value;
 
@@ -119,5 +120,4 @@
             }
         currentCount++;
         }
-    }
 }
