@@ -17,6 +17,7 @@ else
     <div id="grid">
         <QuickGrid Items="@FilteredForms" ResizableColumns Pagination="@pagination" custom-attrib="somevalue" class="custom-class-attrib" >
             <PropertyColumn Property="@(p => p.Id)" Sortable="true" />
+            <PropertyColumn Property="@(p => p.Date)" Format="yyyy-MM-dd" Sortable="true" />
             <PropertyColumn Property="@(p => p.Birthday)" Sortable="true" />
             <PropertyColumn Property="@(p => p.Gender)" Sortable="true" />
             <PropertyColumn Property="@(p => p.PlaceOfBirth)" Sortable="true">

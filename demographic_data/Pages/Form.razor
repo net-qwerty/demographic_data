@@ -47,7 +47,7 @@
             new Field()
             {
                 Title = "День рождения",
-                Name = "Дата рождения в формате день:месяц:год",
+                Name = "день:месяц:год",
                 Value = ""
             },
             new Field()
@@ -94,6 +94,8 @@
         {
         
         var addItem = new FormItem {};
+
+        addItem.Date = DateOnly.FromDateTime(DateTime.Now);
 
         addItem.Birthday = fields[0].Value;
 
