@@ -5,7 +5,7 @@
 
 <PageTitle>Form</PageTitle>
 
-<h1><b>Демографический опрос</b></h1>
+<h1><b>Анкета</b></h1>
 
 @foreach (var field in fields)
     {
@@ -13,12 +13,31 @@
         <h3>@field.Title</h3>
 
         <input placeholder=@field.Name @bind=field.Value/>
-    
+
+
+        foreach (var check in fields)
+        {
+            if (check.Value != ""){
+                test = 1;
+            }
+            else {
+                test = 0;
+                break;
+            }
+        }
     }
 
 <p></p>
 
-<button class="btn btn-primary" @onclick="SendForm">Отправить анкету</button>
+@if (test == 1)
+{
+    <button class="btn btn-primary" @onclick="SendForm">Отправить анкету</button>
+
+}
+else
+{   
+    <i>Заполните все поля чтобы отправить анкету!</i>
+}
 
 @* Вывод Анкеты  *@
 
@@ -91,6 +110,7 @@
     }
     private int currentCount = 0;
 
+    private int test = 0;
     private async Task SendForm()
         {
         
