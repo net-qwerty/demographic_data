@@ -14,4 +14,6 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://
 
 builder.Services.AddQuickGridEntityFrameworkAdapter();
 
+builder.Services.AddBlazorBootstrap();
+
 await builder.Build().RunAsync();

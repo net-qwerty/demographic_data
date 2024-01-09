@@ -1,0 +1,54 @@
+﻿@inject HttpClient Http;
+
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Id :</div>
+    <div class="col-7 col-md-9">@FormId</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Дата заполнения анкеты :</div>
+    <div class="col-7 col-md-9">@form.Date</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">День рождения :</div>
+    <div class="col-7 col-md-9">@form.Birthday</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Пол :</div>
+    <div class="col-7 col-md-9">@form.Gender</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Место рождения :</div>
+    <div class="col-7 col-md-9">@form.PlaceOfBirth</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Образование :</div>
+    <div class="col-7 col-md-9">@form.Education</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Семейное положение :</div>
+    <div class="col-7 col-md-9">@form.FamilyStatus</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Место работы :</div>
+    <div class="col-7 col-md-9">@form.Employment</div>
+</div>
+<div class="row">
+    <div class="col-5 col-md-3 text-end">Уровень дохода :</div>
+    <div class="col-7 col-md-9">@form.IncomeLevel</div>
+</div>
+
+@code {
+    private FormItem form;
+
+    [Parameter] public int FormId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // get employee with {EmployeeId} from DB
+
+
+        form = await Http.GetFromJsonAsync<FormItem>("formitems/" + FormId);
+
+        base.OnInitialized();
+    }
+}
