@@ -1,0 +1,32 @@
+﻿@inject HttpClient Http;
+
+<h4><b>Вы действительно хотите удалить анкету под номером @FormId ?</b></h4>
+
+@if (result)
+{
+    <p>Анкета с номером @FormId удалена!</p>
+}
+else
+{ 
+<Button Color="ButtonColor.Danger" @onclick="DeleteFormId">ДА</Button>
+}
+
+@code {
+    private FormItem form;
+
+    private bool result = false;
+
+    [Parameter] public int FormId { get; set; }
+
+    private async Task DeleteFormId()
+        {
+        
+            await Http.DeleteAsync("formitems/" + FormId);
+
+            base.OnInitialized();
+
+            result = true;
+            
+        }
+
+}

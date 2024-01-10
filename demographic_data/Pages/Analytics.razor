@@ -36,6 +36,9 @@ else
             <TemplateColumn>
                 <Button Color="ButtonColor.Primary" @onclick="() => OnShowModalClick(context.Id)">Show</Button>
             </TemplateColumn>
+            <TemplateColumn>
+                <Button Color="ButtonColor.Danger" @onclick="() => OnDeleteModalClick(context.Id)">Delete</Button>
+            </TemplateColumn>
         </QuickGrid>
     </div>
 
@@ -110,5 +113,13 @@ else
         var parameters = new Dictionary<string, object>();
         parameters.Add("FormId", value);
         await modal.ShowAsync<ShowForm>(title: "Form Details", parameters: parameters);
+    }
+
+    private async Task OnDeleteModalClick(int value)
+    {
+        var parameters = new Dictionary<string, object>();
+        parameters.Add("FormId", value);
+        await modal.ShowAsync<DeleteForm>(title: "Delete Form", parameters: parameters);
+        await modal.HideAsync();
     }
 }
