@@ -1,4 +1,4 @@
-public class Form
+public class FormItem
 {
     public int Id { get; set; }
 

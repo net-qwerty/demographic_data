@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 // builder.Services.AddDbContext<FormDb>(opt => opt.UseInMemoryDatabase("FormList"));
 // builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDbContext<FormDb>(options =>
+builder.Services.AddDbContext<Context>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Database")));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -42,25 +42,25 @@ formItems.MapDelete("/{id}", DeleteForm);
 
 app.Run();
 
-static async Task<IResult> GetAllForms(FormDb db)
+static async Task<IResult> GetAllForms(Context db)
 {
     return TypedResults.Ok(await db.Forms.ToArrayAsync());
 }
 
-static async Task<IResult> GetCompleteForms(FormDb db)
+static async Task<IResult> GetCompleteForms(Context db)
 {
     return TypedResults.Ok(await db.Forms.Where(t => t.IsComplete).ToListAsync());
 }
 
-static async Task<IResult> GetForms(int id, FormDb db)
+static async Task<IResult> GetForms(int id, Context db)
 {
     return await db.Forms.FindAsync(id)
-        is Form form
+        is FormItem form
             ? TypedResults.Ok(form)
             : TypedResults.NotFound();
 }
 
-static async Task<IResult> CreateForm(Form form, FormDb db)
+static async Task<IResult> CreateForm(FormItem form, Context db)
 {
     db.Forms.Add(form);
     await db.SaveChangesAsync();
@@ -68,7 +68,7 @@ static async Task<IResult> CreateForm(Form form, FormDb db)
     return TypedResults.Created($"/formitems/{form.Id}", form);
 }
 
-static async Task<IResult> UpdateForm(int id, Form inputForm, FormDb db)
+static async Task<IResult> UpdateForm(int id, FormItem inputForm, Context db)
 {
     var form = await db.Forms.FindAsync(id);
 
@@ -82,9 +82,9 @@ static async Task<IResult> UpdateForm(int id, Form inputForm, FormDb db)
     return TypedResults.NoContent();
 }
 
-static async Task<IResult> DeleteForm(int id, FormDb db)
+static async Task<IResult> DeleteForm(int id, Context db)
 {
-    if (await db.Forms.FindAsync(id) is Form form)
+    if (await db.Forms.FindAsync(id) is FormItem form)
     {
         db.Forms.Remove(form);
         await db.SaveChangesAsync();
