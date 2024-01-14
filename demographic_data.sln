@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demographic_data", "demogra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demographic_data.API", "demographic_data.API\demographic_data.API.csproj", "{F09B6D63-35DA-4121-B88E-7E82BACBD8F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demographic_data.Infrastructure", "demographic_data.Infrastructure\demographic_data.Infrastructure.csproj", "{C2FD8CD5-4565-4E53-91EE-0C60356DDB59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "demographic_data.Domain", "demographic_data.Domain\demographic_data.Domain.csproj", "{1EBDB972-BA2A-47A1-AFAF-5F44A60A835D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F09B6D63-35DA-4121-B88E-7E82BACBD8F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09B6D63-35DA-4121-B88E-7E82BACBD8F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F09B6D63-35DA-4121-B88E-7E82BACBD8F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FD8CD5-4565-4E53-91EE-0C60356DDB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FD8CD5-4565-4E53-91EE-0C60356DDB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FD8CD5-4565-4E53-91EE-0C60356DDB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FD8CD5-4565-4E53-91EE-0C60356DDB59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EBDB972-BA2A-47A1-AFAF-5F44A60A835D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBDB972-BA2A-47A1-AFAF-5F44A60A835D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EBDB972-BA2A-47A1-AFAF-5F44A60A835D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EBDB972-BA2A-47A1-AFAF-5F44A60A835D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
